@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="THERMOSAFE — Thermal Work Limit Monitoring System"
+    >
+
+    <title>THERMOSAFE | TWL Monitor</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+    <!-- ================================
+         BACKGROUND
+    ================================= -->
+
+    <div class="background">
+
+        <div class="background-grid"></div>
+
+        <div class="glow glow-one"></div>
+
+        <div class="glow glow-two"></div>
+
+    </div>
+
+
+
+    <!-- ================================
+         SIDEBAR
+    ================================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-box">
+                TS
+            </div>
+
+            <div>
+
+                <strong>THERMOSAFE</strong>
+
+                <span>
+                    TWL MONITOR
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <button class="nav-link active">
+                <span>◉</span>
+                Overview
+            </button>
+
+            <button class="nav-link">
+                <span>◌</span>
+                Live Monitor
+            </button>
+
+            <button class="nav-link">
+                <span>⌁</span>
+                TWL Analysis
+            </button>
+
+            <button class="nav-link">
+                <span>⚠</span>
+                Alerts
+            </button>
+
+            <button class="nav-link">
+                <span>▣</span>
+                History
+            </button>
+
+            <button class="nav-link">
+                <span>⚙</span>
+                Settings
+            </button>
+
+        </nav>
+
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+
+                <strong>
+                    SYSTEM READY
+                </strong>
+
+                <small>
+                    Awaiting data source
+                </small>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- ================================
+         MAIN CONTENT
+    ================================= -->
+
+    <main class="main">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div>
+
+                <span class="eyebrow">
+                    THERMAL SAFETY CONTROL
+                </span>
+
+                <h1>
+                    TWL Monitor
+                </h1>
+
+                <p>
+                    Thermal Work Limit monitoring
+                    and environmental assessment
+                </p>
+
+            </div>
+
+
+            <div class="header-right">
+
+                <div class="connection">
+
+                    <span></span>
+
+                    <strong>
+                        NOT CONNECTED
+                    </strong>
+
+                </div>
+
+                <div
+                    class="clock"
+                    id="clock"
+                >
+                    --:--:--
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- ================================
+             LOCATION
+        ================================= -->
+
+        <section class="location-panel">
+
+            <div class="location-info">
+
+                <span class="eyebrow">
+                    MONITORING LOCATION
+                </span>
+
+                <h2 id="locationName">
+                    No location selected
+                </h2>
+
+                <p id="locationDetails">
+                    Select a location or connect
+                    a TWL sensor.
+                </p>
+
+            </div>
+
+
+            <div class="location-search">
+
+                <input
+                    type="text"
+                    id="locationInput"
+                    placeholder="Search city or location..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="locationSearchButton"
+                >
+                    SEARCH
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             TWL HERO
+        ================================= -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- TWL CARD -->
+
+            <article class="twl-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            THERMAL WORK LIMIT
+                        </span>
+
+                        <h2>
+                            Current TWL
+                        </h2>
+
+                    </div>
+
+                    <span class="data-label">
+                        CALCULATED
+                    </span>
+
+                </div>
+
+
+                <div class="twl-center">
+
+                    <div class="twl-gauge">
+
+                        <div class="gauge-inner">
+
+                            <strong
+                                id="twlValue"
+                            >
+                                --
+                            </strong>
+
+                            <span>
+                                W/m²
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="twl-status">
+
+                        <span
+                            class="status-light"
+                            id="twlLight"
+                        ></span>
+
+                        <strong id="twlStatus">
+                            AWAITING DATA
+                        </strong>
+
+                        <p id="twlDescription">
+                            TWL will be calculated
+                            when valid environmental
+                            measurements are available.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- WORK STATUS -->
+
+            <article class="work-card">
+
+                <div class="card-heading">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            WORK CONDITION
+                        </span>
+
+                        <h2>
+                            Safety Status
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <div class="work-status">
+
+                    <div
+                        class="status-circle"
+                        id="workStatusCircle"
+                    >
+                        —
+                    </div>
+
+                    <h3 id="workStatus">
+                        DATA REQUIRED
+                    </h3>
+
+                    <p id="workDescription">
+                        No TWL assessment is currently
+                        available.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+
+        <!-- ================================
+             ENVIRONMENTAL INPUTS
+        ================================= -->
+
+        <section class="section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        ENVIRONMENTAL INPUTS
+                    </span>
+
+                    <h2>
+                        TWL Measurements
+                    </h2>
+
+                </div>
+
+                <span class="measurement-status">
+                    NO SENSOR DATA
+                </span>
+
+            </div>
+
+
+            <div class="measurements">
+
+
+                <article class="measurement-card">
+
+                    <span class="measurement-icon">
+                        °C
+                    </span>
+
+                    <span class="measurement-name">
+                        AIR TEMPERATURE
+                    </span>
+
+                    <strong id="airTemperature">
+                        —
+                    </strong>
+
+                    <small>
+                        °C
+                    </small>
+
+                </article>
+
+
+
+                <article class="measurement-card">
+
+                    <span class="measurement-icon">
+                        TG
+                    </span>
+
+                    <span class="measurement-name">
+                        GLOBE TEMPERATURE
+                    </span>
+
+                    <strong id="globeTemperature">
+                        —
+                    </strong>
+
+                    <small>
+                        °C
+                    </small>
+
+                </article>
+
+
+
+                <article class="measurement-card">
+
+                    <span class="measurement-icon">
+                        WB
+                    </span>
+
+                    <span class="measurement-name">
+                        WET-BULB TEMPERATURE
+                    </span>
+
+                    <strong id="wetBulbTemperature">
+                        —
+                    </strong>
+
+                    <small>
+                        °C
+                    </small>
+
+                </article>
+
+
+
+                <article class="measurement-card">
+
+                    <span class="measurement-icon">
+                        WS
+                    </span>
+
+                    <span class="measurement-name">
+                        WIND SPEED
+                    </span>
+
+                    <strong id="windSpeed">
+                        —
+                    </strong>
+
+                    <small>
+                        m/s
+                    </small>
+
+                </article>
+
+
+
+                <article class="measurement-card">
+
+                    <span class="measurement-icon">
+                        RH
+                    </span>
+
+                    <span class="measurement-name">
+                        RELATIVE HUMIDITY
+                    </span>
+
+                    <strong id="humidity">
+                        —
+                    </strong>
+
+                    <small>
+                        %
+                    </small>
+
+                </article>
+
+
+
+                <article class="measurement-card">
+
+                    <span class="measurement-icon">
+                        P
+                    </span>
+
+                    <span class="measurement-name">
+                        ATMOSPHERIC PRESSURE
+                    </span>
+
+                    <strong id="pressure">
+                        —
+                    </strong>
+
+                    <small>
+                        kPa
+                    </small>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             DATA SOURCE
+        ================================= -->
+
+        <section class="source-panel">
+
+            <div>
+
+                <span class="eyebrow">
+                    DATA SOURCE
+                </span>
+
+                <h2>
+                    Connect TWL Measurement System
+                </h2>
+
+                <p>
+                    THERMOSAFE requires validated
+                    environmental measurements before
+                    producing a TWL assessment.
+                </p>
+
+            </div>
+
+
+            <div class="source-actions">
+
+                <button
+                    class="primary-button"
+                    id="sensorButton"
+                >
+                    CONNECT SENSOR
+                </button>
+
+                <button
+                    class="secondary-button"
+                    id="manualButton"
+                >
+                    MANUAL INPUT
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             HISTORY
+        ================================= -->
+
+        <section class="history-panel">
+
+            <div class="section-header">
+
+                <div>
+
+                    <span class="eyebrow">
+                        MONITORING HISTORY
+                    </span>
+
+                    <h2>
+                        TWL Trend
+                    </h2>
+
+                </div>
+
+                <span>
+                    NO HISTORICAL DATA
+                </span>
+
+            </div>
+
+
+            <div class="chart">
+
+                <div class="chart-message">
+
+                    <strong>
+                        Waiting for measurements
+                    </strong>
+
+                    <span>
+                        TWL history will appear here
+                        once validated readings are received.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ================================
+             FOOTER
+        ================================= -->
+
+        <footer>
+
+            <div>
+
+                <strong>
+                    THERMOSAFE
+                </strong>
+
+                <span>
+                    Thermal Work Limit Monitoring System
+                </span>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    SYSTEM STATUS
+                </span>
+
+                <strong>
+                    READY
+                </strong>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
